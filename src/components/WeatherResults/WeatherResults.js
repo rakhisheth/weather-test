@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
+import ThreeDayWeather from "../ThreeDayWeather/ThreeDayWeather";
 import ShowThreeDayButton from "../Button/ThreeDay/ShowThreeDayButton";
 
 const WeatherResults = ({ currentWeatherData }) => {
@@ -15,6 +16,11 @@ const WeatherResults = ({ currentWeatherData }) => {
         setShowThreeDays={setShowThreeDays}
         setThreeDayWeatherData={setThreeDayWeatherData}
       />
+      {showThreeDays && (
+        <div data-testid="5dw">
+          <ThreeDayWeather threeDayWeatherData={threeDayWeatherData} />
+        </div>
+      )}
     </div>
   );
 };

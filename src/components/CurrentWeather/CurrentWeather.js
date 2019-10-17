@@ -9,6 +9,7 @@ const CurrentWeather = ({ currentWeatherData }) => {
 
   return (
     <WeatherTemplate
+      component="current"
       title={name}
       temp={temp}
       temp_min={temp_min}

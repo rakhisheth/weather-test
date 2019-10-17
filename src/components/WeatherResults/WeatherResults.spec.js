@@ -24,4 +24,18 @@ describe("WeatherResults component", () => {
 
     expect(container).toBeTruthy();
   });
+
+  it("should set showThreeDays to true and display Three Day Weather results", async () => {
+    mock
+      .onGet(`${API_URL}forecast?id=2643743&units=metric&appid=${API_KEY}`)
+      .reply(200, { list: [] });
+    const { queryByTestId, queryByText } = render(
+      <WeatherResults currentWeatherData={currentWeatherData}></WeatherResults>
+    );
+
+    fireEvent.click(queryByText("Show 3 Day Forecast"));
+    await wait(() => {
+      expect(queryByTestId("3dw")).not.toBeNull();
+    });
+  });
 });

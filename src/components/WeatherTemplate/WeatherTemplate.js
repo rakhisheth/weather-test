@@ -1,13 +1,13 @@
 import React from "react";
 
-const WeatherTemplate = ({ title, temp, temp_min, temp_max }) => {
+const WeatherTemplate = ({ component, title, temp, temp_min, temp_max }) => {
   const formatTemp = val => `${Math.round(val)}°c`;
   return (
-    <div>
+    <div component={component}>
       <p>{title}</p>
-      <p>Lowest: {formatTemp(temp_min)}</p>
-      <p>{formatTemp(temp)}</p>
-      <p>Highest: {formatTemp(temp_max)}</p>
+      {component === "current" && <p>Lowest: {formatTemp(temp_min)}</p>}
+      <p component={component}>{formatTemp(temp)}</p>
+      {component === "current" && <p>Highest: {formatTemp(temp_max)}</p>}
     </div>
   );
 };
