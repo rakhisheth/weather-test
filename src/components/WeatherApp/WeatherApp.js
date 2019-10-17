@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Form from "../Form/Form";
+import WeatherResults from "../WeatherResults/WeatherResults";
 
 const WeatherApp = () => {
   const [queryString, setQueryString] = useState("");
@@ -14,6 +15,9 @@ const WeatherApp = () => {
         currentWeatherData={currentWeatherData}
         setCurrentWeatherData={setCurrentWeatherData}
       />
+      {currentWeatherData && (
+        <WeatherResults currentWeatherData={currentWeatherData} />
+      )}
     </div>
   );
 };
