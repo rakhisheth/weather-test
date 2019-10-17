@@ -1,1 +1,1 @@
-export { getCurrentWeather } from "./getWeatherData";
+export { getCurrentWeather, getThreeDayWeather } from "./getWeatherData";
