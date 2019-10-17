@@ -6,7 +6,11 @@ import Form from "./Form";
 describe("Form component", () => {
   it("should successfully render", () => {
     const { container } = render(
-      <Form queryString="London" setQueryString={jest.fn()} />
+      <Form
+        queryString="London"
+        setQueryString={jest.fn()}
+        setCurrentWeatherData={jest.fn()}
+      />
     );
 
     expect(container).toBeTruthy();
@@ -15,7 +19,11 @@ describe("Form component", () => {
   it("should update queryString on change of the input field", () => {
     const setQueryString = jest.fn();
     const { getByPlaceholderText } = render(
-      <Form queryString="Londo" setQueryString={setQueryString} />
+      <Form
+        queryString="Londo"
+        setQueryString={setQueryString}
+        setCurrentWeatherData={jest.fn()}
+      />
     );
 
     fireEvent.change(getByPlaceholderText("Location"), {

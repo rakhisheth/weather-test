@@ -1,10 +1,18 @@
 import React from "react";
 
+import { getCurrentWeather } from "../../../helpers/getWeatherData/index";
 import Button from "../Button/Button";
 
-const SubmitButton = ({ setQueryString }) => {
+const SubmitButton = ({
+  queryString,
+  setQueryString,
+  setCurrentWeatherData
+}) => {
   const handleOnSubmit = async event => {
     event.preventDefault();
+
+    const data = await getCurrentWeather(queryString);
+    setCurrentWeatherData(data);
     setQueryString("");
   };
 

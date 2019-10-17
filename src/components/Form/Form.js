@@ -3,7 +3,7 @@ import React from "react";
 import SubmitButton from "../Button/Submit";
 import Input from "../Input";
 
-const Form = ({ queryString, setQueryString }) => {
+const Form = ({ queryString, setQueryString, setCurrentWeatherData }) => {
   return (
     <form>
       <Input
@@ -12,7 +12,11 @@ const Form = ({ queryString, setQueryString }) => {
         placeholder="Location"
         value={queryString}
       />
-      <SubmitButton queryString={queryString} setQueryString={setQueryString} />
+      <SubmitButton
+        queryString={queryString}
+        setQueryString={setQueryString}
+        setCurrentWeatherData={setCurrentWeatherData}
+      />
     </form>
   );
 };
