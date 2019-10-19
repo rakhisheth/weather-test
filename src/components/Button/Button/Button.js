@@ -1,11 +1,24 @@
 import React from "react";
-
+import styled from "styled-components";
 const Button = ({ className, type, onClick, children }) => {
   return (
-    <button className={className} type={type} onClick={onClick}>
+    <ButtonWrapper className={className} type={type} onClick={onClick}>
       {children}
-    </button>
+    </ButtonWrapper>
   );
 };
 
 export default Button;
+
+const ButtonWrapper = styled.button`
+  display: block;
+  margin: 10px auto;
+  border: 1px solid #fff;
+  outline: 0;
+  background-color: black;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+`;

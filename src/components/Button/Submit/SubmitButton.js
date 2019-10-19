@@ -6,12 +6,20 @@ import Button from "../Button/Button";
 const SubmitButton = ({
   queryString,
   setQueryString,
-  setCurrentWeatherData
+  setCurrentWeatherData,
+  setError
 }) => {
   const handleOnSubmit = async event => {
     event.preventDefault();
 
     const data = await getCurrentWeather(queryString);
+
+    if (!data) {
+      setError(true);
+    } else {
+      setError(false);
+    }
+
     setCurrentWeatherData(data);
     setQueryString("");
   };
